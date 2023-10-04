@@ -5,11 +5,9 @@ const { spawn } = require('child_process');
 
 // ====== FFMPEG ======
 const ffmpeg = spawn('ffmpeg', [
-    '-rtsp_transport', 'tcp',
     '-i', 'rtsp://admintapo:123456@192.168.0.152:554/stream1',
     '-loglevel', 'panic',
     '-c:v', 'copy',   // Codec (Compresser / decompresser)              
-    '-an',            // Pas d'audio. Retirez cela si vous voulez inclure l'audio
     '-f', 'mpegts',   // Format de sortie
     '-'
 ]);
